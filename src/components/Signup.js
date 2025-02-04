@@ -27,19 +27,18 @@ const handleNavigateNext = ()=>{
   navigate("/")
 }
   return (
-    <div>
-      <h2>Signup</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
-        <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-        <button type="submit">Signup</button>
-      </form>
-      <button
-      onClick={handleNavigateNext}
-      > Login</button>
-    </div>
+    <div className="login-container">
+    <h2>Signup</h2>
+    {error && <p className="error-message">{error}</p>}
+    <form onSubmit={handleSubmit} className="login-form">
+      <input type="text" name="username" placeholder="Username" onChange={handleChange} required />
+      <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+      <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+      <button type="submit">Signup</button>
+    </form>
+    <button onClick={handleNavigateNext} className="signup-button">Login</button>
+  </div>
+  
   );
 };
 

@@ -94,7 +94,9 @@ console.log(audioBlob);
   
     setloading(true);
     const formData = new FormData();
-    formData.append("audio", audioBlob, "recording.webm");
+    if (audioBlob !== null) {
+      formData.append("audio", audioBlob, "recording.webm");
+    }
     formData.append("title", newNoteTitle);
     formData.append("content", newNote);
   
@@ -109,6 +111,7 @@ console.log(audioBlob);
       setNotes([...notes, response.data]); // Add new note to state
       setNewNote(""); // Clear input
       setNewNoteTitle(""); // Clear input
+     setAudioBlob(null);
       fetchNotes();
     } catch (err) {
       console.error("Error adding note:", err);
